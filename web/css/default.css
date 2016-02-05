@@ -1,0 +1,7 @@
+body {
+  padding-top: 50px;
+}
+.alert-sm {
+    font-size: 90%;
+    padding: 6px 12px;
+}
