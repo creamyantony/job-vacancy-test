@@ -170,13 +170,20 @@ class CurlRequest
      */
     public function setMethod($method = self::METHOD_GET)
     {
+        $throw = false;
         if (!is_numeric($method)) {
             if (!isset(self::$methodMap[$method])) {
-                throw new Exception('Unknown request method passed.');
+                $throw = true;
+            } else {
+                $this->method = self::$methodMap[$method];
             }
-            $this->method = self::$methodMap[$method];
-        } else { // todo: enhance check
+        } elseif (!in_array($method, self::$methodMap)) {
+            $throw = true;
+        } else {
             $this->method = $method;
+        }
+        if ($throw) {
+            throw new Exception('Unknown request method passed.');
         }
     }
     
