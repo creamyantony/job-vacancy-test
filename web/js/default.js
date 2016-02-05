@@ -69,11 +69,12 @@ $(document).ready(function(){
                                 .addClass('alert alert-sm alert-' + cssStatus)
                                 .text('Last HTTP code: ' + r.code)
                                 .fadeIn();
+                        var $respCont = $('#response-container');
                         if (r.body) {
-                            var code = $('#response-container').text(r.body).html();
-                            $('#response-container').html(code);
+                            var code = $respCont.text(r.body).html();
+                            $respCont.html(code);
                         } else {
-                            $('#response-container').text('{none}');
+                            $respCont.text('{none}');
                         }
                     } else {
                         $ec.text(r.status ? r.status : ERROR_UNKNOWN_MSG).fadeIn();

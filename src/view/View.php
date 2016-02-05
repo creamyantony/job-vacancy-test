@@ -44,13 +44,15 @@ class View
     
     public function __toString()
     {
+        $rendered = '';
         try {
             ob_start();
             $this->render();
-            return ob_get_clean();
+            $rendered = ob_get_clean();
         } catch (Exception $e) {
             $this->context->handleRenderException($e);
         }
+        return $rendered;
     }
     
     public function render()

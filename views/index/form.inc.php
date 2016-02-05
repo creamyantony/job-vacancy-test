@@ -1,6 +1,3 @@
-<?php
-
-?>
 <form id="request-form" class="form-horizontal">
     <div class="form-group form-group-sm">
         <label for="uri" class="col-sm-3 control-label">URI</label>

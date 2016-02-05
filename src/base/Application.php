@@ -116,7 +116,7 @@ class Application
     
     public function handleException(Exception $e)
     {
-        error_log('Exception catched: "' . $e->getMessage() . '" thrown in ' . $e->getFile() . ' on line ' .
+        error_log('Exception caught: "' . $e->getMessage() . '" thrown in ' . $e->getFile() . ' on line ' .
                 $e->getLine());
         
         $this->statusCode = $e->getCode();

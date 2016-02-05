@@ -27,7 +27,7 @@ abstract class PageController implements RendererInterface
     {
         $this->app = $app;
         $classPath = explode('\\', get_called_class());
-        // lower case only just for compability with *nix
+        // lower case only just for compatibility with *nix
         $this->classViewPath = strtolower(str_replace('Controller', '', array_pop($classPath)));
     }
     
