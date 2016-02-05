@@ -4,6 +4,12 @@ namespace app\components;
 
 use Exception;
 
+/**
+ * Class CurlRequest
+ * @package app\components
+ *
+ * todo: cookies handling
+ */
 class CurlRequest
 {
     const MAX_REDIRECTS = 5;
@@ -56,7 +62,7 @@ class CurlRequest
      * required HTTP method.
      * 
      * @param string $url Next request URL
-     * @param bool false $initial Is the next request initial or NOT (ex. some redirects was detected)
+     * @param bool $initial Is the next request initial or NOT (ex. some redirects was detected)
      */
     private function handleParameters($url, $initial = false)
     {
@@ -144,7 +150,7 @@ class CurlRequest
         $this->handleParameters($this->handleCurrentURL($url), $count < 1);
         // executing session:
         if (!$response = curl_exec($this->ch)) {
-            throw new Exception('Counld not execute cURL session.');
+            throw new Exception('Could not execute cURL session.');
         }
         $status = curl_getinfo($this->ch, CURLINFO_HTTP_CODE);
         $headerSize = curl_getinfo($this->ch, CURLINFO_HEADER_SIZE);
