@@ -59,6 +59,6 @@ class View
     {
         $params = $this->params;
         $params['context'] = $this->context;
-        self::renderFile($this->fileName, $params, $this->context);
+        self::renderFile($this->fileName, $params);
     }
 }
